@@ -12,8 +12,7 @@ Aplicação API
 ## Build e execução
 
 ```sh
-docker build -t api .
-docker run -p 8080:8080 api
+docker compose up --build
 ```
 
 ## Testes unitários (validação)
