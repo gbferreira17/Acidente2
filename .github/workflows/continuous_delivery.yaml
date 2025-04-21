@@ -1,3 +1,5 @@
+name: Continuous Delivery
+
 on:
   push:
     branches: "feature/main"
