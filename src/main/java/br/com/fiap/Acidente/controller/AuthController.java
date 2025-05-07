@@ -30,7 +30,7 @@ public class AuthController {
 
     @PostMapping("/login")
     @ResponseStatus(HttpStatus.OK)
-    public ResponseEntity login(@RequestBody @Valid AuthenticationDTO authenticationDTO){
+    public TokenDTO login(@RequestBody @Valid AuthenticationDTO authenticationDTO){
         UsernamePasswordAuthenticationToken usernamePassword = new UsernamePasswordAuthenticationToken(
                 authenticationDTO.email(),
                 authenticationDTO.password());
@@ -38,17 +38,16 @@ public class AuthController {
 
         String token = tokenService.gerarToken((Usuario) auth.getPrincipal());
 
-        return ResponseEntity.ok(new TokenDTO(token));
+        return new TokenDTO(token);
     }
 
     @PostMapping("/register")
     @ResponseStatus(HttpStatus.CREATED)
-    public ResponseEntity register(@RequestBody @Valid RegisterDTO registerDTO){
+    public UsuarioExibicaoDTO register(@RequestBody @Valid RegisterDTO registerDTO){
 
         UsuarioExibicaoDTO usuarioSalvo = null;
-        usuarioSalvo = usuarioService.salvarUsuario(registerDTO);
 
-        return ResponseEntity.ok(usuarioSalvo);
+        return usuarioService.salvarUsuario(registerDTO);
 
     }
 

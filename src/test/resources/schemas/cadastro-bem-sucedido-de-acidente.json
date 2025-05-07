@@ -1,0 +1,65 @@
+{
+  "definitions": {},
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://example.com/object1746495660.json",
+  "title": "Root",
+  "type": "object",
+  "required": [
+    "acidenteId",
+    "modeloVeiculo",
+    "placaVeiculo",
+    "dataOcorrencia",
+    "endereco"
+  ],
+  "properties": {
+    "acidenteId": {
+      "$id": "#root/acidenteId",
+      "title": "Acidenteid",
+      "type": "integer",
+      "examples": [
+        22
+      ],
+      "default": 0
+    },
+    "modeloVeiculo": {
+      "$id": "#root/modeloVeiculo",
+      "title": "Modeloveiculo",
+      "type": "string",
+      "default": "",
+      "examples": [
+        "carro"
+      ],
+      "pattern": "^.*$"
+    },
+    "placaVeiculo": {
+      "$id": "#root/placaVeiculo",
+      "title": "Placaveiculo",
+      "type": "string",
+      "default": "",
+      "examples": [
+        "456dfg"
+      ],
+      "pattern": "^.*$"
+    },
+    "dataOcorrencia": {
+      "$id": "#root/dataOcorrencia",
+      "title": "Dataocorrencia",
+      "type": "string",
+      "default": "",
+      "examples": [
+        "2025-04-21"
+      ],
+      "pattern": "^.*$"
+    },
+    "endereco": {
+      "$id": "#root/endereco",
+      "title": "Endereco",
+      "type": "string",
+      "default": "",
+      "examples": [
+        "Av paulista 456"
+      ],
+      "pattern": "^.*$"
+    }
+  }
+}

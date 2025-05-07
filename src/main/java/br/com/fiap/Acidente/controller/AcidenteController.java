@@ -11,38 +11,38 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-@RestController
-@RequestMapping("/acidente")
-public class AcidenteController {
+    @RestController
+    @RequestMapping("/acidente")
+    public class AcidenteController {
 
-    @Autowired
-    private AcidenteService acidenteService;
+        @Autowired
+        private AcidenteService acidenteService;
 
-    @PostMapping
-    @ResponseStatus(HttpStatus.CREATED)
-    public AcidenteDTO registrar(@RequestBody @Valid AcidenteDTO acidente){
-        return acidenteService.registrarAcidente(acidente);
+        @PostMapping
+        @ResponseStatus(HttpStatus.CREATED)
+        public AcidenteDTO registrar(@RequestBody @Valid AcidenteDTO acidente){
+            return acidenteService.registrarAcidente(acidente);
+        }
+
+        @PutMapping
+        @ResponseStatus(HttpStatus.OK)
+        public AcidenteDTO alterar(@RequestBody @Valid AcidenteDTO acidente){
+            return acidenteService.alterarAcidente(acidente);
+
+        }
+
+        @GetMapping
+        @ResponseStatus(HttpStatus.OK)
+        public List<AcidenteDTO> listarTodos(){
+
+            return acidenteService.listarTodos();
+        }
+
+        @DeleteMapping("/{id}")
+        @ResponseStatus(HttpStatus.NO_CONTENT)
+        public void excluir(@PathVariable Long id){
+
+             acidenteService.excluir(id);
+        }
+
     }
-
-    @PutMapping
-    @ResponseStatus(HttpStatus.OK)
-    public AcidenteDTO alterar(@RequestBody @Valid AcidenteDTO acidente){
-        return acidenteService.alterarAcidente(acidente);
-
-    }
-
-    @GetMapping
-    @ResponseStatus(HttpStatus.OK)
-    public List<AcidenteDTO> listarTodos(){
-
-        return acidenteService.listarTodos();
-    }
-
-    @DeleteMapping("/{id}")
-    @ResponseStatus(HttpStatus.NO_CONTENT)
-    public void excluir(@PathVariable Long id){
-
-         acidenteService.excluir(id);
-    }
-
-}

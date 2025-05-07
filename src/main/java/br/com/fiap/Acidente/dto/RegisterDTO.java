@@ -11,14 +11,14 @@ public record RegisterDTO(
         String nome,
 
         @NotBlank(message = "O e-mail do usuário é obrigatório!")
-        @Email(message = "O e-mai do usuário não é válido!")
+        @Email(message = "O e-mail do usuário não é válido!")
         String email,
 
         @NotBlank(message = "A senha do usuário é obrigatório!")
         @Size(min = 6, max = 20, message = "A senha deve conter entre 6 e 20 caracteres!")
         String password,
 
-        @NotNull
+        @NotNull(message = "A role do usuário é obrigatório!")
         Role role
 ) {
 }
